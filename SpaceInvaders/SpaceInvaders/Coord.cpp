@@ -16,7 +16,7 @@ int Coord::getPositionX() const
 
 int Coord::getPositionY() const
 {
-	return posY;
+  	return posY;
 }
 
 void Coord::setPositionX(int x)

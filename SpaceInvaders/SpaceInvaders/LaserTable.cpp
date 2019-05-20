@@ -12,6 +12,13 @@ LaserTable::LaserTable()
 	this->nbLaserDisponible = 2;
 }
 
+void LaserTable::startLaser(int x)
+{
+	this->coord.setPositionX(x);
+	this->coord.setPositionY(44);
+	this->putLaser();
+}
+
 void LaserTable::creerLaser(int coordXVaisseau)
 {
 	if (FrameRate::getColdDownForLaser() == 0)
@@ -38,6 +45,14 @@ void LaserTable::creerLaser(int coordXVaisseau)
 	}
 }
 
+void LaserTable::removeLaser(unsigned short indice)
+{
+	this->pLaserTable[indice]->killLaser();
+	delete pLaserTable[indice];
+	this->pLaserTable[indice] = NULL;
+	this->nbLaserActif--;
+}
+
 void LaserTable::moveLaser()
 {
 	UIKit::color(13);
@@ -46,7 +61,7 @@ void LaserTable::moveLaser()
 		if (this->pLaserTable[i] != NULL)
 		{
 			//TODO chek colision si il y a colision, remove le laser
-			if (this->pLaserTable[i]->coord.getPositionY() == 10)
+			if (this->pLaserTable[i]->coord.getPositionY() == 2)
 			{
 				this->pLaserTable[i]->killLaser();
 				delete pLaserTable[i];
@@ -59,6 +74,16 @@ void LaserTable::moveLaser()
 			}
 		}
 	}
+}
+
+unsigned short LaserTable::getNbLaserActif()
+{
+	return this->nbLaserActif;
+}
+
+unsigned short LaserTable::getNbLaserDisponible()
+{
+	return this->nbLaserDisponible;
 }
 
 LaserTable::~LaserTable()

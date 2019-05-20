@@ -2,11 +2,13 @@
 #include "Coord.h"
 class Mur
 {
-	unsigned short nbElementActif;
-	unsigned short nbElementDisponible;
-	Coord coordXY[];
 public:
+	Coord coords[26];
+
 	Mur();
+
+	void setCoordyXY(unsigned short indice, int coordX, int coordY);
+
 	~Mur();
 };
 

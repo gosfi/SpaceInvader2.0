@@ -7,9 +7,11 @@ void GrosVaisseau::getVaisseauDesign()
 
 GrosVaisseau::GrosVaisseau()
 {
-	char folderPathToVaisseau[]("C:\\Users\\gdesgagn\\source\\repos\\SpaceInvader-Project\\SpaceInvader-Project\\string\\vaisseau.txt");
+	char folderPathToVaisseau[]("string\\vaisseau.txt");
 	this->pCheminVaisseau = folderPathToVaisseau;
 	this->getVaisseauDesign();
+	this->coord.setPositionX(101);
+	this->coord.setPositionY(45);
 }
 
 void GrosVaisseau::modifierPosition(char key)
@@ -34,11 +36,14 @@ void GrosVaisseau::modifierPosition(char key)
 	this->removeVaisseau(key);
 }
 
-void GrosVaisseau::putVaisseau() const
+void GrosVaisseau::putVaisseau()
 {
+	UIKit::gotoXY(20, 40);
+	std::cout << char(32);
 	UIKit::color(7);
 	unsigned short i = 0;
-	unsigned int coordX = this->coord.getPositionX(), coordY = this->coord.getPositionY();
+	this->coordX = this->coord.getPositionX();
+	this->coordY = this->coord.getPositionY();
 	unsigned int memory1 = coordX;
 	while (this->vaisseau[i] != '\0')
 	{

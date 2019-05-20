@@ -6,8 +6,7 @@ class SetWindowFullScreen {
 	CONSOLE_SCREEN_BUFFER_INFO screenBufferInfo;
 	COORD buffer;
 
-
-public:
 	SetWindowFullScreen();
+public:
 	static void setFullScreen();
 };

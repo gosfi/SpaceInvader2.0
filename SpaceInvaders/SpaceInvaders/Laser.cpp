@@ -6,7 +6,7 @@ using namespace std;
 void Laser::startLaser(int x)
 {
 	coord.setPositionX(x);
-	coord.setPositionY(44);
+	coord.setPositionY(40);
 	putLaser();
 	isAlive = true;
 }

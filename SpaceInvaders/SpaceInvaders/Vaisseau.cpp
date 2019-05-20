@@ -17,8 +17,8 @@ void Vaisseau::putVaisseau() const
 
 Vaisseau::Vaisseau()
 {
-	coord.setPositionX(101);
-	coord.setPositionY(45);
+	coord.setPositionX(20);
+	coord.setPositionY(40);
 	putVaisseau();
 }
 

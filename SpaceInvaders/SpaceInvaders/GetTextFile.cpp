@@ -19,12 +19,4 @@ std::string GetTextFile::getTxtFile(const char strChar[],const unsigned short Gr
 	strStream << inFile.rdbuf();
 	inFile.close();
 	return strStream.str();
-
-	/*char c = strStream.get();
-	pStringTable = new char[GrosseurString];
-	for (int i = 0; c != '\0'; i++) {
-		strStream.get(c);
-		pStringTable[i] = c;
-	}*/
-
 }

@@ -3,9 +3,7 @@
 HANDLE SetWindowFullScreen::handle = (GetStdHandle(STD_OUTPUT_HANDLE));
 
 SetWindowFullScreen::SetWindowFullScreen()
-{
-	
-}
+{}
 
 void SetWindowFullScreen::setFullScreen()
 {

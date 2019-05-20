@@ -9,7 +9,7 @@
 
 class GameManager
 {
-	unsigned short chekForCollision();
+
 	void printWall();
 public:
 	static GameObject* pGameObject;
@@ -19,7 +19,7 @@ public:
 
 	//Menu menu;
 
-
+	void chekForCollision();
 	virtual ~GameManager();
 };
 

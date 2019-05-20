@@ -7,9 +7,10 @@ class GrosVaisseau : public Vaisseau{
 	char* pCheminVaisseau;
 	const unsigned short NB_CHAR_VAISSEAU = 43;
 	std::string vaisseau;
+	unsigned int coordX, coordY;
 	
 	void getVaisseauDesign();
-	void putVaisseau() const override;
+	void putVaisseau();
 	void removeVaisseau(char key) const;
 public:
 	GrosVaisseau();

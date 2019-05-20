@@ -2,9 +2,12 @@
 
 Mur::Mur()
 {
-	this->nbElementActif = 22;
-	this->nbElementDisponible = 22;
-	this->coordXY[nbElementDisponible];
+}
+
+void Mur::setCoordyXY(unsigned short indice, int coordX, int coordY)
+{
+	this->coords[indice].setPositionX(coordX);
+	this->coords[indice].setPositionY(coordY);
 }
 
 
