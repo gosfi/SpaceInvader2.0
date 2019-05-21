@@ -1,12 +1,12 @@
 #include "FrameRate.h"
 
 unsigned short FrameRate::frameRate = 0;
-unsigned short FrameRate::coldDownForLaser = 5;
+unsigned short FrameRate::coldDownForLaser = 2;
 FrameRate::FrameRate(){}
 
 void FrameRate::changeFrame()
 {
-	if (FrameRate::frameRate < 10)
+	if (FrameRate::frameRate < 400)
 	{
 		FrameRate::frameRate++;
 	}
@@ -14,6 +14,7 @@ void FrameRate::changeFrame()
 	{
 		FrameRate::frameRate = 0;
 	}
+
 	if (FrameRate::coldDownForLaser != 0)
 	{
 		FrameRate::coldDownForLaser--;

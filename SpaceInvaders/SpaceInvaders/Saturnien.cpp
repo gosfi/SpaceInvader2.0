@@ -1,12 +1,26 @@
 #include "Saturnien.h"
 
 unsigned int Saturnien::nbPointJoueur;
-unsigned short Saturnien::nbSaturnienActif = 20;
+unsigned short Saturnien::nbSaturnienActif = 0;
 int Saturnien::plusGrosX = 0;
 int Saturnien::plusPetitX = 0;
 
-Saturnien::Saturnien(int type, int valeur, unsigned int coordX, unsigned int coordY) : ExtraTerrestre(type, valeur)
+unsigned short Saturnien::plusGrosY = 0;
+
+Saturnien::Saturnien(int type, int valeur, unsigned int coordX, unsigned int coordY, unsigned short niveau) : ExtraTerrestre(type, valeur)
 {
+	switch (niveau)
+	{
+	case (1):
+		this->nbSaturnienActif = 10;
+		break;	
+	case (2):
+		this->nbSaturnienActif = 15;
+		break;	
+	case (3):
+		this->nbSaturnienActif = 20;
+		break;
+	}
 	this->typeExtraTerrestre = type;
 	this->moveDirection = 'R';
 	char folderPathExtraterrestre[] = "string\\extraTerrestre.txt";
@@ -68,16 +82,16 @@ void Saturnien::moveGroupExtraTerrestre(Saturnien ** &pTableExtraTerrestre)
 	}
 
 	//Chek si il faut move down
-	if (this->plusPetitX == 41 && this->moveDirection == 'L')
+	if (this->plusPetitX <= 41 && this->moveDirection == 'L')
 	{
-		this->moveDirection = 'D';
+		this->moveDirection = 'D'; //D pour down
 		for (int i = 0; i < this->nbSaturnienActif; i++)
 		{
 			pTableExtraTerrestre[i]->moveExtraTerrestre(this->moveDirection);
 		}
 		this->moveDirection = 'R';
 	}
-	else if (this->plusGrosX == 152 && this->moveDirection == 'R')
+	else if (this->plusGrosX >= 152 && this->moveDirection == 'R')
 	{
 		this->moveDirection = 'D';
 		for (int i = 0; i < this->nbSaturnienActif; i++)
@@ -125,6 +139,11 @@ unsigned short Saturnien::getNbPointJoueur()
 	return this->nbPointJoueur;
 }
 
+unsigned short Saturnien::getPlusGrosY()
+{
+	return this->plusGrosY;
+}
+
 unsigned short Saturnien::getTypeExtraTerrestre() const
 {
 	return this->typeExtraTerrestre;
@@ -139,9 +158,6 @@ void Saturnien::ajouterPoint()
 		break;
 	case(2):
 		this->nbPointJoueur += 100;
-		break;
-	case(3):
-		this->nbPointJoueur += 200;
 		break;
 	}
 }
@@ -166,6 +182,10 @@ void Saturnien::moveExtraTerrestre(char moveDirection)
 		break;
 	case('D'):
 		this->coord.setPositionY(this->coord.getPositionY() + 2);
+		if (this->coord.getPositionY() > this->plusGrosY)
+		{
+			this->plusGrosY = this->coord.getPositionY();
+		}
 		break;
 	}
 }
@@ -221,4 +241,5 @@ void Saturnien::removeExtraTerrestre()
 
 Saturnien::~Saturnien()
 {
+
 }

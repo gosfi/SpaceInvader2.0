@@ -3,8 +3,9 @@
 #include "UIKit.h"
 
 #include "GameObject.h"
-//include Menu.h
-
+#include "Menu.h"
+#pragma comment(lib, "winmm.lib")
+#include <Mmsystem.h>
 #include "ManageKeyInput.h"
 
 class GameManager
@@ -15,6 +16,7 @@ public:
 	static GameObject* pGameObject;
 
 	GameManager();
+	//GameManager(unsigned short inutile);
 
 
 	//Menu menu;

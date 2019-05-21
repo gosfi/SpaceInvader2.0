@@ -3,7 +3,7 @@ class FrameRate {
 	static unsigned short frameRate;
 	static unsigned short coldDownForLaser;
 	
-	static const unsigned short COLDDOWNFORLASER = 8;
+	static const unsigned short COLDDOWNFORLASER = 2000;
 
 	FrameRate();
 public:

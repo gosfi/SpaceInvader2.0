@@ -25,7 +25,9 @@ class Saturnien : public ExtraTerrestre
 	unsigned short getTypeExtraTerrestre() const;
 
 public:
-	Saturnien(int type, int valeur, unsigned int coordX, unsigned int coordY);
+	static unsigned short plusGrosY;
+
+	Saturnien(int type, int valeur, unsigned int coordX, unsigned int coordY, unsigned short niveau);
 
 	void moveGroupExtraTerrestre(Saturnien** &pTableExtraTerrestre);
 	void killEnnemie(Saturnien ** &pTableExtraTerrestre, unsigned int indice);
@@ -34,6 +36,7 @@ public:
 	void ajouterPoint();
 	unsigned short getNbSaturnienActif();
 	unsigned short getNbPointJoueur();
+	unsigned short getPlusGrosY();
 
 	~Saturnien();
 };

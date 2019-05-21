@@ -34,6 +34,7 @@ void LaserTable::creerLaser(int coordXVaisseau)
 		{
 			indice++;
 		}
+		PlaySound(TEXT("string\\laserSound.wav"), NULL, SND_FILENAME || SND_ASYNC);
 		this->pLaserTable[indice] = new Laser;
 		this->pLaserTable[indice]->startLaser(coordXVaisseau + 4);
 		if (nbLaserActif == (nbLaserDisponible / 2) - 1)

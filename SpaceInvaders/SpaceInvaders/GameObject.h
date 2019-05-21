@@ -17,21 +17,18 @@ enum Ennemie {
 	JOURNALIEN
 };
 class GameObject {
-	//void LaserManager();
+	unsigned short nbEnnemie;
 
 public:
-
 	GameObject();
+	GameObject(unsigned short niveau);
 	static void FrameRateManager();
 	LaserTable pLaserTable;
-	//Ennemi pEnnmiTable;
 
 	GrosVaisseau pVaisseau;
 
 	Saturnien** pEnnemyTable;
 	Mur tableMur[6];
-
-	//pEnnemyTable
 
 	~GameObject();
 };
